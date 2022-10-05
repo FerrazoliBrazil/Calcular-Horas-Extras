@@ -1,0 +1,2 @@
+Olá!
+Este projeto se refere a uma ferramenta para facilitar o trabalho no momento de se cálcular horas extras, visto o fato que este processo é de certa forma complexo e chei de cálculos, que podem ser automatizados.

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+  <title>Calcular Hora Extra, Soma de horas</title>
+  <script src="calc.js"></script>
+ </head>
+<body>
+	<div class="container-fluid p-2 bg-primary text-white text-center">
+		<h1>Calculadora de Hora Extra a Receber </h1>
+	</div> 
+	<div class="container-fluid p-2 bg-secondary text-white text-left">
+   
+        <label for="salario">Salário bruto(sem desconto)</label>: 
+        <input type="number" id="salarioBruto" onclick="limparDadosCarga('psalarioHora','horaExtra')" pattern="[0-9]+([,\.][0-9]+)?" min="0" step="any"
+      name="null"><span id="salarioHora">
+  </div>
+     <div class="container-fluid p-2 bg-secondary text-white text-left">
+      <label for="cargaHoraria">Carga horária semanal</label>: 
+        <select id="cargaHoraria" name="cargaHoraria" onclick="limparDadosCarga('psalarioHora','horaExtra')"  onblur="imprimirValorHora('O seu salário hora é de :',psalarioHora)"  >
+         <option disabled selected id="fake">Selecione...</option>
+          <option value="30" >30 horas</option>
+          <option value="40" >40 horas</option>
+          <option value="44" >44 horas</option>
+        </select>
+      <br><span id="psalarioHora" class="text-warning"></span>
+  </div>
+  <div class="container-fluid p-2 bg-secondary text-white text-left">
+        <label for="porcentagem">Porcentagem paga pela sua hora extra</label>:
+         <select id="porcentagem" name="porcentagem" onclick="limparDados('horaExtra')" 
+         onblur="teste('Você recebe por cada hora extra trabalhada: R$',horaExtra);">
+          <option disabled selected id="fake">Selecione...</option>
+           <option value="30">30%</option>
+           <option value="40">40%</option>
+           <option value="50">50%</option>
+           <option value="60">60%</option>
+           <option value="70">70%</option>
+           <option value="80">80%</option>
+           <option value="90">90%</option>
+           <option value="100">100%</option>
+         </select>
+		<br><span id="horaExtra" class="text-warning"></span>
+	</div>
+	
+	<div class="container-fluid p-2 bg-primary text-white text-center">
+		<div class="row">
+			<div class="col">Entrada </div>	
+			<div class="col">Saída</div>
+			<div class="col">Total Dia</div>
+		</div>	
+	</div>
+ 
+	<div class="row container-fluid p-2 text-white text-center">
+     	
+		 <div class="col">
+			<label for="entradaDia1"></label>
+			<input type="time" id="entradaDia1" onclick="limparDados('p1')">
+		 </div>
+		 
+		 <div class="col">	
+			<label for="saidaDia1"></label> 
+			<input type="time" id="saidaDia1"  onclick="limparDados('p1')" onblur="imprimirHoraDia('entradaDia1','saidaDia1','',p1);">
+		 </div>
+		 
+		 <div class="col text-primary">	
+			<span id="p1" style="font-size: 0.7em;"></span>
+		 </div >	
+	 
+	</div> 
+	
+	<div class="row container-fluid p-2 text-white text-center">
+     	
+		 <div class="col">
+			<label for="entradaDia2"></label>
+			<input type="time" id="entradaDia2" onclick="limparDados('p2')">
+		 </div>
+		 
+		 <div class="col">	
+			<label for="saidaDia2"></label> 
+			<input type="time" id="saidaDia2"  onclick="limparDados('p2')" onblur="imprimirHoraDia('entradaDia2','saidaDia2','',p2);">
+		 </div>
+		 
+		 <div class="col text-primary">	
+			<span id="p2" style="font-size: 0.7em;" ></span>
+		 </div >	
+	 
+	</div> 
+	
+	<div class="row container-fluid p-2 text-white text-center">
+     	
+		 <div class="col">
+			<label for="entradaDia3"></label>
+			<input type="time" id="entradaDia3" onclick="limparDados('p3')">
+		 </div>
+		 
+		 <div class="col ">	
+			<label for="saidaDia3"></label> 
+			<input type="time" id="saidaDia3"  onclick="limparDados('p3')" onblur="imprimirHoraDia('entradaDia3','saidaDia3','',p3);">
+		 </div>
+		 
+		 <div class="col text-primary">	
+			<span id="p3" style="font-size: 0.7em;"></span>
+		 </div >	
+	 
+	</div> 
+	
+	<div class="row container-fluid p-2 text-white text-center">
+     	
+		 <div class="col">
+			<label for="entradaDia4"></label>
+			<input type="time" id="entradaDia4" onclick="limparDados('p4')">
+		 </div>
+		 
+		 <div class="col">	
+			<label for="saidaDia4"></label> 
+			<input type="time" id="saidaDia4"  onclick="limparDados('p4')" onblur="imprimirHoraDia('entradaDia4','saidaDia4','',p4);">
+		 </div>
+		 
+		 <div class="col text-primary">	
+			<span id="p4" style="font-size: 0.7em;"></span>
+		 </div >	
+	 
+	</div> 
+	
+	<div class="row container-fluid p-2 text-white text-center">
+     	
+		 <div class="col">
+			<label for="entradaDia5"></label>
+			<input type="time" id="entradaDia5" onclick="limparDados('p5')">
+		 </div>
+		 
+		 <div class="col">	
+			<label for="saidaDia5"></label> 
+			<input type="time" id="saidaDia5"  onclick="limparDados('p5')" onblur="imprimirHoraDia('entradaDia5','saidaDia5','',p5);">
+		 </div>
+		 
+		 <div class="col text-primary">	
+			<span id="p5" style="font-size: 0.7em;"></span>
+		 </div >	
+	 
+	</div> 
+	<div class="row container-fluid p-2 text-white text-center">
+     	
+		 <div class="col">
+			<label for="entradaDia6"></label>
+			<input type="time" id="entradaDia6" onclick="limparDados('p6')">
+		 </div>
+		 
+		 <div class="col">	
+			<label for="saidaDia6"></label> 
+			<input type="time" id="saidaDia6"  onclick="limparDados('p6')" onblur="imprimirHoraDia('entradaDia6','saidaDia6','',p6);">
+		 </div>
+		 
+		 <div class="col text-primary">	
+			<span id="p6" style="font-size: 0.7em;"></span>
+		 </div >	
+	 
+	</div> 
+   
+  
+ 
+ 
+    
+ 
+    
+  
+  
+<div style="float: left; width: 100%; margin-right: 3px;">
+    
+    <h2>Total de horas extras a receber: <span id="tot"></span></h2>
+    <h3><span id="tot2"></span></h3>
+    <p>Pode ocorrer alguns centavos de diferença devido a arredondamentos para os calculos executados! Qualquer dúvida contate o RH de sua empresa!</p>
+</div>
+
+ <div style="float: left; width: 30%; margin-right: 3px;">  
+    <button id="refresh">Limpar dados!</button>
+</div>
+  
+</body>
+</html>
